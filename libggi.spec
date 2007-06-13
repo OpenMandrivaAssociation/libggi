@@ -140,7 +140,5 @@ export echo=echo
 %defattr(-,root,root)
 %{_includedir}/ggi/*
 %{_libdir}/*.a
-%{_libdir}/ggi/*/*.a
-%{_libdir}/ggi/default/fbdev/*.a
 
 
