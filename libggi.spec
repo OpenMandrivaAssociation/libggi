@@ -5,19 +5,14 @@
 Summary:	A fast, simple, small and flexible user-space graphics library
 Name:		libggi
 Version:	2.2.2
-Release:	%mkrel 5
+Release:	%mkrel 6
 License:	GPL
 Group:		System/Libraries
 URL:		http://www.ggi-project.org/
 Source:		http://www.ggi-project.org/ftp/ggi/v2.2/%{name}-%{version}.src.tar.bz2
 Patch0:		libggi-2.0.1-no-lcd823-ppc.patch
-Patch1:		libggi-2.1.0-gcc4.patch
-Patch2:		libggi-2.1.0-libtool.patch
 Patch3:		libggi-2.0.3-xpath.patch
-Patch4:		libggi-2.1.0-lib64.patch
-Patch5:		libggi-2.1.1-glibc2.4-fix.patch
 Buildrequires:	libgii-devel >= 1.0.2-2mdv
-BuildRequires:	autoconf2.5 >= 2.58, automake1.9
 Buildrequires:	aalib-devel ncurses-devel DirectFB-devel libxext-devel
 BuildConflicts:	svgalib-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -75,11 +70,7 @@ applications which will use %{name}.
 %prep
 %setup -q
 %patch0 -p1 -b .ppc
-#%patch1 -p1 -b .gcc4
-#%patch2 -p1 -b .libtool
 %patch3 -p1 -b .xpath
-#%patch4 -p1 -b .lib64
-#%patch5 -p1 -b .glibc2.4
 # regenerate configure script
 ./autogen.sh
 
