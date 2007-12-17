@@ -15,7 +15,6 @@ Patch3:		libggi-2.0.3-xpath.patch
 Buildrequires:	libgii-devel >= 1.0.2-2mdv
 Buildrequires:	aalib-devel ncurses-devel DirectFB-devel libxext-devel
 BuildConflicts:	svgalib-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 LibGGI is a fast, simple, small and flexible user-space graphics
