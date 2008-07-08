@@ -5,7 +5,7 @@
 Summary:	A fast, simple, small and flexible user-space graphics library
 Name:		libggi
 Version:	2.2.2
-Release:	%mkrel 8
+Release:	%mkrel 9
 License:	GPL
 Group:		System/Libraries
 URL:		http://www.ggi-project.org/
@@ -68,11 +68,15 @@ applications which will use %{name}.
 
 
 %prep
+
 %setup -q
 %patch0 -p1 -b .ppc
 %patch3 -p1 -b .xpath
+
+perl -pi -e "s|/lib\b|/%{_lib}|g" * m4/*
+
 # regenerate configure script
-./autogen.sh
+#./autogen.sh < borked
 
 %build
 # workaround configure failure
@@ -82,14 +86,11 @@ export echo=echo
 %make 
 
 %install
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 # workaround failure
 export echo=echo
 %makeinstall_std
-
-%clean
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
 
 %if %mdkversion < 200900
 %post -n %{libname} -p /sbin/ldconfig
@@ -98,6 +99,9 @@ export echo=echo
 %if %mdkversion < 200900
 %postun -n %{libname} -p /sbin/ldconfig
 %endif
+
+%clean
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
@@ -135,5 +139,3 @@ export echo=echo
 %defattr(-,root,root)
 %{_includedir}/ggi/*
 %{_libdir}/*.a
-
-
