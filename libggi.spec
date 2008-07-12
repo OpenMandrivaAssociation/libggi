@@ -1,11 +1,13 @@
 %define libname_orig	%{name}
 %define major	2
 %define libname	%mklibname ggi %{major}
+%define develname %mklibname ggi -d
+%define staticdevel %mklibname ggi -d -s
 
 Summary:	A fast, simple, small and flexible user-space graphics library
 Name:		libggi
 Version:	2.2.2
-Release:	%mkrel 9
+Release:	%mkrel 10
 License:	GPL
 Group:		System/Libraries
 URL:		http://www.ggi-project.org/
@@ -47,25 +49,27 @@ Requires:	%{name}
 This package contains the library needed to run programs dynamically
 linked with %{name}.
 
-%package -n	%{libname}-devel
+%package -n	%{develname}
 Summary:	Headers for developing programs that will use %{name}
 Group:		Development/Other
 Requires:	%{libname} = %{version}-%{release} libgii-devel
-Provides:	%{libname_orig}-devel = %{version}-%{release}
+Provides:	%{name}-devel = %{version}-%{release}
+Obsoletes:	%mklibname -d ggi 2
 
-%description -n	%{libname}-devel
+%description -n	%{develname}
 This package contains the headers that programmers will need to develop
 applications which will use %{name}.
 
-%package -n	%{libname}-static-devel
+%package -n	%{staticdevel}
 Summary:	Static Library for developing programs that will use %{name}
 Group:		Development/Other
-Requires:	%{libname}-devel = %{version}-%{release}
+Requires:	%{develname} = %{version}-%{release}
+Obsoletes:	%mklibname -d -s ggi 2
+Provides:	%name-static-devel = %version-%release
 
-%description -n	%{libname}-static-devel
+%description -n	%{staticdevel}
 This package contains the static library that programmers will need to develop
 applications which will use %{name}.
-
 
 %prep
 
@@ -128,14 +132,14 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %{_libdir}/*.so.%{major}*
 
-%files -n %{libname}-devel
+%files -n %{develname}
 %defattr(-,root,root)
 %doc ChangeLog doc/*.txt
 %{_includedir}/ggi/*
 %{_libdir}/*.so
 %{_libdir}/*.la
 
-%files -n %{libname}-static-devel
+%files -n %{staticdevel}
 %defattr(-,root,root)
 %{_includedir}/ggi/*
 %{_libdir}/*.a
