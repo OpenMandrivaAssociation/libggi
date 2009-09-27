@@ -7,13 +7,14 @@
 Summary:	A fast, simple, small and flexible user-space graphics library
 Name:		libggi
 Version:	2.2.2
-Release:	%mkrel 12
+Release:	%mkrel 13
 License:	GPL
 Group:		System/Libraries
 URL:		http://www.ggi-project.org/
 Source:		http://www.ggi-project.org/ftp/ggi/v2.2/%{name}-%{version}.src.tar.bz2
 Patch0:		libggi-2.0.1-no-lcd823-ppc.patch
 Patch3:		libggi-2.0.3-xpath.patch
+Patch4:		libggi_wformat.patch
 Buildrequires:	libgii-devel >= 1.0.2-2mdv
 Buildrequires:	aalib-devel ncurses-devel DirectFB-devel libxext-devel
 BuildConflicts:	svgalib-devel
@@ -76,6 +77,7 @@ applications which will use %{name}.
 %setup -q
 %patch0 -p1 -b .ppc
 %patch3 -p1 -b .xpath
+%patch4 -p1 -b .wformat
 
 perl -pi -e "s|/lib\b|/%{_lib}|g" * m4/*
 
