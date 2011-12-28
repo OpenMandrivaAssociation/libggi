@@ -7,7 +7,7 @@
 Summary:	A fast, simple, small and flexible user-space graphics library
 Name:		libggi
 Version:	2.2.2
-Release:	%mkrel 16
+Release:	%mkrel 17
 License:	GPL
 Group:		System/Libraries
 URL:		http://www.ggi-project.org/
