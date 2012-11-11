@@ -1,0 +1,10 @@
+--- libggi-2.0.1/configure.in.ppc	2002-11-27 19:27:51.000000000 -0500
++++ libggi-2.0.1/configure.in	2002-11-27 19:28:04.000000000 -0500
+@@ -420,6 +420,7 @@
+ 
+ case "$host" in
+   powerpc-*-linux*)
++	build_lcd823_target="no"
+ 	;;
+   *)
+ 	build_lcd823_target="no"

@@ -1,0 +1,19 @@
+---
+ configure.in |    4 	4 +	0 -	0 !
+ 1 file changed, 4 insertions(+)
+
+Index: libggi-2.2.2/configure.in
+===================================================================
+--- libggi-2.2.2.orig/configure.in	2009-06-17 09:28:27.000000000 -0400
++++ libggi-2.2.2/configure.in	2009-06-17 09:28:50.000000000 -0400
+@@ -637,6 +637,10 @@ AM_CONDITIONAL(BUILTIN_HELPER_MANSYNC,
+ 
+ if test "x$build_x_target" != "xno"; then
+   AC_PATH_XTRA
++  dnl [gb] yes, ugly hackaround
++  if test "x$ac_x_includes" = "x" -a "x$x_includes" != "xNONE"; then
++    ac_x_includes=$x_includes
++  fi
+   if test "x$no_x" = "xyes"; then
+     build_x_target="no"
+   else
