@@ -65,7 +65,7 @@ applications which will use %{name}.
 %prep
 %setup -q
 %apply_patches
-sed -i -e "s|/lib\b|/%{_lib}|g" * m4/*
+perl -pi -e "s|/lib\b|/%{_lib}|g" * m4/*
 
 %build
 # workaround configure failure
