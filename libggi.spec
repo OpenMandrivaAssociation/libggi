@@ -1,6 +1,7 @@
 %define major	2
 %define libname	%mklibname ggi %{major}
 %define devname	%mklibname ggi -d
+%bcond_wihtout	directfb
 
 Summary:	A fast, simple, small and flexible user-space graphics library
 Name:		libggi
@@ -17,7 +18,9 @@ Patch4:		libggi_wformat.patch
 Buildrequires:	aalib-devel
 Buildrequires:	libgii-devel >= 1.0.2-2
 BuildRequires:	pkgconfig(ncurses)
+%if %{with directfb}
 BuildRequires:	pkgconfig(directfb)
+%endif
 BuildRequires:	pkgconfig(xext)
 BuildConflicts:	svgalib-devel
 
@@ -107,4 +110,3 @@ export echo=echo
 %{_libdir}/*.so
 %{_mandir}/man3/*
 %{_mandir}/man7/*
-
