@@ -6,7 +6,7 @@
 Summary:	A fast, simple, small and flexible user-space graphics library
 Name:		libggi
 Version:	2.2.2
-Release:	26
+Release:	27
 License:	GPLv2
 Group:		System/Libraries
 Url:		http://www.ggi-project.org/
@@ -73,7 +73,7 @@ perl -pi -e "s|/lib\b|/%{_lib}|g" * m4/*
 %build
 # workaround configure failure
 export echo=echo
-%configure2_5x \
+%configure \
 	--disable-static \
 	--with-gii=%{_prefix} \
 	--disable-debug
