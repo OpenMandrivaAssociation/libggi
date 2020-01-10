@@ -67,7 +67,7 @@ applications which will use %{name}.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 perl -pi -e "s|/lib\b|/%{_lib}|g" * m4/*
 
 %build
