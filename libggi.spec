@@ -9,7 +9,7 @@ Version:	2.2.2
 Release:	28
 License:	GPLv2
 Group:		System/Libraries
-Url:		http://www.ggi-project.org/
+Url:		https://www.ggi-project.org/
 Source0:	http://www.ggi-project.org/ftp/ggi/v2.2/%{name}-%{version}.src.tar.bz2
 Patch0:		libggi-2.0.1-no-lcd823-ppc.patch
 Patch3:		libggi-2.0.3-xpath.patch
