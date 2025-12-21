@@ -15,6 +15,11 @@ Patch0:		libggi-2.0.1-no-lcd823-ppc.patch
 Patch3:		libggi-2.0.3-xpath.patch
 Patch4:		libggi_wformat.patch
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 Buildrequires:	aalib-devel
 Buildrequires:	libgii-devel >= 1.0.2-2
 BuildRequires:	pkgconfig(ncurses)
